@@ -1,0 +1,260 @@
+import java.util.Scanner;
+class RockPaperScissor
+{
+    public static void main(String[]args)
+    {
+        Scanner scan=new Scanner(System.in);
+        String si=scan.nextLine();
+        String s1[]=si.split(" ");
+        int count=1;
+        int r=Integer.parseInt(s1[0]);
+        int c=Integer.parseInt(s1[1]);
+        int n=Integer.parseInt(s1[2]);
+        char in[][]=new char[r][c];
+        char out[][]=new char[r][c];
+        for(int i=0;i<r;i++)
+        {
+            String s=scan.nextLine();
+            for(int k=0;k<in[i].length;k++)
+            {
+                in[i][k]=s.charAt(k);
+            }
+        }
+          for(int i=0;i<r;i++)
+        {
+            for(int j=0;j<c;j++)
+            {
+                out[i][j]=in[i][j];
+            }
+        }    
+        
+        while(n!=0)
+        {
+        for(int i=0;i<r;i++)
+        {
+            for(int j=0;j<c;j++)
+            {
+                if(in[i][j]=='R')
+                {
+                    if(i>0&&j>0&&i<in.length-1&&j<in[i].length-1)
+                    {
+                        if(in[i][j-1]=='P'||in[i][j+1]=='p'||in[i-1][j]=='P'||in[i+1][j]=='P')
+                        {
+                            out[i][j]='P';
+                        }
+                    }
+                     if(i==0&&j==0)
+                    {
+                        if(in[i][j+1]=='P'||in[i+1][j]=='P')
+                        {
+                            out[i][j]='P';
+                        }
+                    }
+                      if(i==in.length-1&&j==0)
+                    {
+                        if(in[i][j+1]=='p'||in[i-1][j]=='P')
+                        {
+                            out[i][j]='P';
+                        }
+                    }
+                       if(i==in.length-1&&j==in[i].length-1)
+                    {
+                        if(in[i][j-1]=='P'||in[i-1][j]=='P')
+                        {
+                            out[i][j]='P';
+                        }
+                    }
+                      if(i==0&&j==in[i].length-1)
+                    {
+                        if(in[i][j-1]=='P'||in[i+1][j]=='P')
+                        {
+                            out[i][j]='P';
+                        }
+                    }
+                      if(i==0&&j>0&&j<in[i].length-1)
+                    {
+                        if(in[i][j+1]=='P'||in[i+1][j]=='P'||in[i][j-1]=='P')
+                        {
+                             out[i][j]='P';
+                        }
+                    }
+                      if(i==in.length-1&&j>0&&j<in[i].length-1)
+                    {
+                        if(in[i-1][j]=='P'||in[i][j-1]=='P'||in[i][j+1]=='P')
+                        {
+                             out[i][j]='P';
+                        }
+                    }
+                     if(j==0&&i>0&&i<in.length-1)
+                    {
+                         if(in[i][j+1]=='P'||in[i+1][j]=='P'||in[i-1][j]=='P')
+                        {
+                             out[i][j]='P';
+                        }
+                    }
+                     if(j==in[i].length-1&&i>0&&i<in.length-1)
+                    {
+                         if(in[i-1][j]=='P'||in[i][j-1]=='P'||in[i+1][j]=='P')
+                        {
+                             out[i][j]='P';
+                        }
+                    }
+                    
+                    
+                    }
+                 if(in[i][j]=='P')
+                {
+                    if(i>0&&j>0&&i<in.length-1&&j<in[i].length-1)
+                    {
+                        if(in[i][j-1]=='S'||in[i][j+1]=='S'||in[i-1][j]=='S'||in[i+1][j]=='S')
+                        {
+                            out[i][j]='S';
+                        }
+                    }
+                     if(i==0&&j==0)
+                    {
+                        if(in[i][j+1]=='S'||in[i+1][j]=='S')
+                        {
+                            out[i][j]='S';
+                        }
+                    }
+                     if(i==in.length-1&&j==0)
+                    {
+                        if(in[i][j+1]=='S'||in[i-1][j]=='S')
+                        {
+                            out[i][j]='S';
+                        }
+                    }
+                      if(i==in.length-1&&j==in[i].length-1)
+                    {
+                        if(in[i][j-1]=='S'||in[i-1][j]=='S')
+                        {
+                            out[i][j]='S';
+                        }
+                    }
+                     if(i==0&&j==in[i].length-1)
+                    {
+                        if(in[i][j-1]=='S'||in[i+1][j]=='S')
+                        {
+                            out[i][j]='S';
+                        }
+                    }
+                      if(i==0&&j>0&&j<in[i].length-1)
+                    {
+                        if(in[i][j+1]=='S'||in[i+1][j]=='S'||in[i][j-1]=='S')
+                        {
+                             out[i][j]='S';
+                        }
+                    }
+                      if(i==in.length-1&&j>0&&j<in[i].length-1)
+                    {
+                        if(in[i-1][j]=='S'||in[i][j-1]=='S'||in[i][j+1]=='S')
+                        {
+                             out[i][j]='S';
+                        }
+                    }
+                     if(j==0&&i>0&&i<in.length-1)
+                    {
+                         if(in[i][j+1]=='S'||in[i+1][j]=='S'||in[i-1][j]=='S')
+                        {
+                             out[i][j]='S';
+                        }
+                    }
+                     if(j==in[i].length-1&&i>0&&i<in.length-1)
+                    {
+                         if(in[i-1][j]=='S'||in[i][j-1]=='S'||in[i+1][j]=='S')
+                        {
+                             out[i][j]='S';
+                        }
+                    }
+                    
+                    }
+                 if(in[i][j]=='S')
+                {
+                    if(i>0&&j>0&&i<in.length-1&&j<in[i].length-1)
+                    {
+                        if(in[i][j-1]=='R'||in[i][j+1]=='R'||in[i-1][j]=='R'||in[i+1][j]=='R')
+                        {
+                            out[i][j]='R';
+                        }
+                    }
+                      if(i==0&&j==0)
+                    {
+                        if(in[i][j+1]=='R'||in[i+1][j]=='R')
+                        {
+                            out[i][j]='R';
+                        }
+                    }
+                     if(i==in.length-1&&j==0)
+                    {
+                        if(in[i][j+1]=='R'||in[i-1][j]=='R')
+                        {
+                            out[i][j]='R';
+                        }
+                    }
+                     if(i==in.length-1&&j==in[i].length-1)
+                    {
+                        if(in[i][j-1]=='R'||in[i-1][j]=='R')
+                        {
+                            out[i][j]='R';
+                        }
+                    }
+                      if(i==0&&j==in[i].length-1)
+                    {
+                        if(in[i][j-1]=='R'||in[i+1][j]=='R')
+                        {
+                            out[i][j]='R';
+                        }
+                    }
+                      if(i==0&&j>0&&j<in[i].length-1)
+                    {
+                        if(in[i][j+1]=='R'||in[i+1][j]=='R'||in[i][j-1]=='R')
+                        {
+                             out[i][j]='R';
+                        }
+                    }
+                      if(i==in.length-1&&j>0&&j<in[i].length-1)
+                    {
+                        if(in[i-1][j]=='R'||in[i][j-1]=='R'||in[i][j+1]=='R')
+                        {
+                             out[i][j]='R';
+                        }
+                    }
+                     if(j==0&&i>0&&i<in.length-1)
+                    {
+                         if(in[i][j+1]=='R'||in[i+1][j]=='R'||in[i-1][j]=='R')
+                        {
+                             out[i][j]='R';
+                        }
+                    }
+                     if(j==in[i].length-1&&i>0&&i<in.length-1)
+                    {
+                         if(in[i-1][j]=='R'||in[i][j-1]=='R'||in[i+1][j]=='R')
+                        {
+                             out[i][j]='R';
+                        }
+                    }
+                    }
+                
+            }
+        }
+         for(int i=0;i<r;i++)
+        {
+            for(int j=0;j<c;j++)
+            {
+                in[i][j]=out[i][j];
+            }
+        }
+        n--;
+    }    
+        for(int i=0;i<r;i++)
+        {
+            for(int j=0;j<c;j++)
+            {
+                System.out.print(out[i][j]);
+            }
+            System.out.println();
+        }
+            
+        }
+}

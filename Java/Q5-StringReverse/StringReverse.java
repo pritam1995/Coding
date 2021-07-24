@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Q1 {
+public class StringReverse {
     public static void main(String[] args) {
         // Given
         // String original = "Little Lamb, I'll tell thee,";
